@@ -85,9 +85,9 @@ class EventListener implements Listener {
         $block = $event->getBlock();
 
         if (!$this->plugin->isToggleSit($player) && $this->getConfig()->get("enable-tap-to-sit", true)) {
-            if ($block instanceof Slab and $block->getMeta() < 6 and $this->getConfig()->getNested("enabled-block-tap.slab", true)) {
+            if ($block instanceof Slab and $this->getConfig()->getNested("enabled-block-tap.slab", true)) {
                 $this->plugin->sit($player, $block);
-            } elseif ($block instanceof Stair and $block->getMeta() < 4 and $this->getConfig()->getNested("enabled-block-tap.stair", true)) {
+            } elseif ($block instanceof Stair and $this->getConfig()->getNested("enabled-block-tap.stair", true)) {
                 $this->plugin->sit($player, $block);
             }
         }
