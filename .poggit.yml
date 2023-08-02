@@ -3,6 +3,7 @@ build-by-default: true
 branches:
   - master
   - pm4
+  - pm5
 projects:
   SimpleLay:
     path: ""

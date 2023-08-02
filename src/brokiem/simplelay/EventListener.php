@@ -43,6 +43,7 @@ use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerToggleSneakEvent;
 use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\network\mcpe\NetworkBroadcastUtils;
 use pocketmine\network\mcpe\protocol\AnimatePacket;
 use pocketmine\network\mcpe\protocol\InteractPacket;
 use pocketmine\player\Player;
@@ -225,7 +226,7 @@ class EventListener implements Listener {
 
             if ($entity instanceof LayingEntity) {
                 $pk = AnimatePacket::create($entity->getId(), $packet->action);
-                $this->plugin->getServer()->broadcastPackets($entity->getViewers(), [$pk]);
+                NetworkBroadcastUtils::broadcastPackets($entity->getViewers(), [$pk]);
             }
         }
     }
